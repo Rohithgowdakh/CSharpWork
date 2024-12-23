@@ -1,0 +1,4 @@
+D:\CSharpWorkspace\FirstSolution\FirstProject\obj\Debug\netcoreapp3.1\FirstProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\FirstSolution\FirstProject\obj\Debug\netcoreapp3.1\FirstProject.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\FirstSolution\FirstProject\obj\Debug\netcoreapp3.1\FirstProject.AssemblyInfo.cs
+D:\CSharpWorkspace\FirstSolution\FirstProject\obj\Debug\netcoreapp3.1\FirstProject.csproj.CoreCompileInputs.cache
