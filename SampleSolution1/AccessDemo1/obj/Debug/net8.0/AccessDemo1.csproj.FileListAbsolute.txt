@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\bin\Debug\net8.0\AccessDemo1.exe
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\bin\Debug\net8.0\AccessDemo1.deps.json
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\bin\Debug\net8.0\AccessDemo1.runtimeconfig.json
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\bin\Debug\net8.0\AccessDemo1.dll
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\bin\Debug\net8.0\AccessDemo1.pdb
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.AssemblyInfo.cs
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.sourcelink.json
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.dll
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\refint\AccessDemo1.dll
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.pdb
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\AccessDemo1.genruntimeconfig.cache
+D:\CSharpWorkspace\SampleSolution1\AccessDemo1\obj\Debug\net8.0\ref\AccessDemo1.dll
