@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\SampleSolution3\Inheritance\bin\Debug\net8.0\Inheritance.exe
+D:\CSharpWorkspace\SampleSolution3\Inheritance\bin\Debug\net8.0\Inheritance.deps.json
+D:\CSharpWorkspace\SampleSolution3\Inheritance\bin\Debug\net8.0\Inheritance.runtimeconfig.json
+D:\CSharpWorkspace\SampleSolution3\Inheritance\bin\Debug\net8.0\Inheritance.dll
+D:\CSharpWorkspace\SampleSolution3\Inheritance\bin\Debug\net8.0\Inheritance.pdb
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.AssemblyInfo.cs
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.sourcelink.json
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.dll
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\refint\Inheritance.dll
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.pdb
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\Inheritance.genruntimeconfig.cache
+D:\CSharpWorkspace\SampleSolution3\Inheritance\obj\Debug\net8.0\ref\Inheritance.dll
