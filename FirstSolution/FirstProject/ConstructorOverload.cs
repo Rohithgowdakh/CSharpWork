@@ -18,7 +18,7 @@ namespace FirstProject
         }
         static void Main(string[] args)
         {
-            ConstructorOverload cc = new ConstructorOverload(10, 20);
+            ConstructorOverload cc = new ConstructorOverload(10, 30);
         }
     }
 }
