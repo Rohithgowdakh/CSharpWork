@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\bin\Debug\net8.0\AbstractClassDemo.exe
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\bin\Debug\net8.0\AbstractClassDemo.deps.json
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\bin\Debug\net8.0\AbstractClassDemo.runtimeconfig.json
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\bin\Debug\net8.0\AbstractClassDemo.dll
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\bin\Debug\net8.0\AbstractClassDemo.pdb
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.sourcelink.json
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.dll
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\refint\AbstractClassDemo.dll
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.pdb
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\AbstractClassDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\AbstractClassDemo\AbstractClassDemo\obj\Debug\net8.0\ref\AbstractClassDemo.dll
