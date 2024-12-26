@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\bin\Debug\net8.0\OperatorOverloading.exe
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\bin\Debug\net8.0\OperatorOverloading.deps.json
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\bin\Debug\net8.0\OperatorOverloading.runtimeconfig.json
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\bin\Debug\net8.0\OperatorOverloading.dll
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\bin\Debug\net8.0\OperatorOverloading.pdb
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.AssemblyInfo.cs
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.sourcelink.json
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.dll
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\refint\OperatorOverloading.dll
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.pdb
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\OperatorOverloading.genruntimeconfig.cache
+D:\CSharpWorkspace\OperatorOverloading\OperatorOverloading\obj\Debug\net8.0\ref\OperatorOverloading.dll
