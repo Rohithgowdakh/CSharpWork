@@ -33,6 +33,9 @@ namespace AbstractClassDemo
             impl.Sub(122, 21);
             impl.mul(21, 43);
             impl.div(100, 4);
+            CalculatorImpl cc= new CalculatorImpl();
+            cc.mul(100, 4);
+            cc.div(960, 4);
         }
     }
 }
