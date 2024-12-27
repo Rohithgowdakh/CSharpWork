@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\bin\Debug\net8.0\EnumerationDemo.exe
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\bin\Debug\net8.0\EnumerationDemo.deps.json
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\bin\Debug\net8.0\EnumerationDemo.runtimeconfig.json
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\bin\Debug\net8.0\EnumerationDemo.dll
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\bin\Debug\net8.0\EnumerationDemo.pdb
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.sourcelink.json
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.dll
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\refint\EnumerationDemo.dll
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.pdb
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\EnumerationDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\EnumerationDemo\EnumerationDemo\obj\Debug\net8.0\ref\EnumerationDemo.dll
