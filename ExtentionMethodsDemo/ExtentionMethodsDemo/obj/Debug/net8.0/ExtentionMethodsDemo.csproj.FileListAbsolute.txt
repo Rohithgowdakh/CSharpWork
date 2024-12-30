@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\bin\Debug\net8.0\ExtentionMethodsDemo.exe
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\bin\Debug\net8.0\ExtentionMethodsDemo.deps.json
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\bin\Debug\net8.0\ExtentionMethodsDemo.runtimeconfig.json
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\bin\Debug\net8.0\ExtentionMethodsDemo.dll
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\bin\Debug\net8.0\ExtentionMethodsDemo.pdb
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.sourcelink.json
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.dll
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\refint\ExtentionMethodsDemo.dll
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.pdb
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ExtentionMethodsDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\ExtentionMethodsDemo\ExtentionMethodsDemo\obj\Debug\net8.0\ref\ExtentionMethodsDemo.dll
