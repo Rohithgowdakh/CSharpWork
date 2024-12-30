@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\bin\Debug\net8.0\DelrgatesDemo.exe
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\bin\Debug\net8.0\DelrgatesDemo.deps.json
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\bin\Debug\net8.0\DelrgatesDemo.runtimeconfig.json
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\bin\Debug\net8.0\DelrgatesDemo.dll
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\bin\Debug\net8.0\DelrgatesDemo.pdb
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.sourcelink.json
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.dll
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\refint\DelrgatesDemo.dll
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.pdb
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\DelrgatesDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\DelrgatesDemo\DelrgatesDemo\obj\Debug\net8.0\ref\DelrgatesDemo.dll
