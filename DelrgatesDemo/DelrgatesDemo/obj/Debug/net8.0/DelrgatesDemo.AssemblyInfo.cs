@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DelrgatesDemo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6dff78eb862d55ac4161f39481899bdd1d0111f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bce47888759d6be4ffc8dde3871d2aaf04f50d16")]
 [assembly: System.Reflection.AssemblyProductAttribute("DelrgatesDemo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DelrgatesDemo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
