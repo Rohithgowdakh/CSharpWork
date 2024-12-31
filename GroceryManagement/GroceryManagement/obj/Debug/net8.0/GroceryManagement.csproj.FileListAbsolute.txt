@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\bin\Debug\net8.0\GroceryManagement.exe
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\bin\Debug\net8.0\GroceryManagement.deps.json
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\bin\Debug\net8.0\GroceryManagement.runtimeconfig.json
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\bin\Debug\net8.0\GroceryManagement.dll
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\bin\Debug\net8.0\GroceryManagement.pdb
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.AssemblyInfo.cs
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.sourcelink.json
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.dll
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\refint\GroceryManagement.dll
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.pdb
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\GroceryManagement.genruntimeconfig.cache
+D:\CSharpWorkspace\GroceryManagement\GroceryManagement\obj\Debug\net8.0\ref\GroceryManagement.dll
