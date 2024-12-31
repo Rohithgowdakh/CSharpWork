@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.sourcelink.json
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\bin\Debug\net8.0\StringBuilderDemo.exe
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\bin\Debug\net8.0\StringBuilderDemo.deps.json
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\bin\Debug\net8.0\StringBuilderDemo.runtimeconfig.json
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\bin\Debug\net8.0\StringBuilderDemo.dll
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\bin\Debug\net8.0\StringBuilderDemo.pdb
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.dll
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\refint\StringBuilderDemo.dll
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.pdb
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\StringBuilderDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\StringBuilderDemo\StringBuilderDemo\obj\Debug\net8.0\ref\StringBuilderDemo.dll
