@@ -10,35 +10,87 @@ namespace GroceryManagement
     public class GroceryUtility
     {
          Dictionary<string, ItemsEntity> _items = new Dictionary<string, ItemsEntity>();
-         Dictionary<string, int> _saledItems = new Dictionary<string, int>();
+         Dictionary<string, double> _saledItems = new Dictionary<string, double>();
          Dictionary<string , ItemsEntity> _total=new Dictionary<string, ItemsEntity> ();
-        double totalPrice = 0;
-        public  void InitializeItems()
+         Dictionary<string , ItemsEntity> _createNewInvoice=new Dictionary<string , ItemsEntity> ();
+         double totalPrice = 0;
+         double currentTotalPrize=0;
+
+        /// <summary>
+        /// Initializes the inventory with predefined items and their details.
+        /// </summary>
+        public void InitializeItems()
         {
             try
             {
-                _items["Mango".ToLower()] = new ItemsEntity("Mango", 100, 150.00);
-                _items["Rice".ToLower()] = new ItemsEntity("Rice", 200, 34.00);
-                _items["Apple".ToLower()] = new ItemsEntity("Apple", 300, 250.00);
-                _items["Banana".ToLower()] = new ItemsEntity("Banana", 70, 51.00);
-                _items["Wheat".ToLower()] = new ItemsEntity("Wheat", 700, 85.00);
+                _items["m1".ToLower()] = new ItemsEntity("Mango", 100, 150.00,"m1");
+                _items["r1".ToLower()] = new ItemsEntity("Rice", 200, 34.00,"r1");
+                _items["a1".ToLower()] = new ItemsEntity("Apple", 300, 250.00,"a1");
+                _items["b1".ToLower()] = new ItemsEntity("Banana", 70, 51.00,"b1");
+                _items["w1".ToLower()] = new ItemsEntity("Wheat", 700, 85.00,"w1");
                 Console.WriteLine();
             }
             catch(Exception e) {
                 Console.WriteLine(e.Message);
             }
         }
+
         /// <summary>
-        /// 
+        /// Manages the main menu of the Grocery Management App, allowing users to display items, 
+        /// add items, check sales data, or exit the application.
         /// </summary>
-        public  void DisplayItems()
+        public void FinalizeInvoice()
+        {
+            bool notExit = true;
+            while (notExit)
+            {
+                Console.WriteLine("Grocery Management App");
+                Console.WriteLine("1. Display Items");
+                Console.WriteLine("2. Add Items and Quantity");
+                Console.WriteLine("3. Check Sales Data");
+                Console.WriteLine("4. Exit");
+                Console.WriteLine("Enter Your Choice :");
+
+                string input = Console.ReadLine();
+                int choice = int.Parse(input);
+                if (choice > 0 && choice < 5)
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            DisplayItemsFromStock();
+                            break;
+                        case 2:
+                            AddAnotherItem();
+                            break;
+                        case 3:
+                            SaledDataReport();
+                            break;
+                        case 4:
+                            Console.WriteLine("Exiting the Application.");
+                            _createNewInvoice.Clear();
+                            currentTotalPrize = 0;
+                            notExit = false;
+                            return;
+                        default:Console.WriteLine("Invalid Choice ,Enter a Valid Choice");
+                            break;
+                    }
+                }
+                else { Console.WriteLine("Invalid Input Please try again"); Console.WriteLine(); }
+            }
+        }
+
+        /// <summary>
+        /// Displays all items in stock with their details, including ID, name, quantity, and price.
+        /// </summary>
+        public void DisplayItemsFromStock()
         {
             try
             {
                 foreach (KeyValuePair<string, ItemsEntity> item in _items)
                 {
                     Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Name :" + item.Key + " quantity:" + item.Value.Quantity + " Price :" + item.Value.Price);
+                    Console.WriteLine("Id :"+item.Key+" Name :" + item.Value.Name + " quantity:" + item.Value.Quantity + " Price :" + item.Value.Price);
 
                 }
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -49,14 +101,19 @@ namespace GroceryManagement
                 Console.WriteLine(e.Message);
             }
         }
-        public  void GenerateBill()
+
+        /// <summary>
+        /// Processes customer orders by validating item availability, updating stock quantities, 
+        /// and generating bill details for purchased items.
+        /// </summary>
+        public void GenerateBill()
         {
             try
             {
-                Console.WriteLine("Enter Item Name :");
-                string name = Console.ReadLine();
-                name=name.ToLower();
-                if (!_items.ContainsKey(name))
+                Console.WriteLine("Enter Item Id :");
+                string id = Console.ReadLine();
+                id=id.ToLower();
+                if (!_items.ContainsKey(id))
                 {
                     Console.WriteLine("This Item Not Available");
                     return;
@@ -64,26 +121,32 @@ namespace GroceryManagement
                 else
                 {
 
-                    ItemsEntity item = _items[name];
+                    ItemsEntity item = _items[id];
                     Console.WriteLine($"Enter Quantity for {item.Name}");
                     string squantity = Console.ReadLine();
-                    int quantity = int.Parse(squantity);
+                    double quantity = double.Parse(squantity);
+                    if(quantity==0)
+                    {
+                        Console.WriteLine("Enter a valid quantity");
+                        return;
+                    }
                     if (item.Quantity <= 0) { Console.WriteLine("item is sold out"); Console.WriteLine(); return; }
                     if (quantity > item.Quantity) { Console.WriteLine("Insufficient Stock "); Console.WriteLine(); return; }
 
                     item.Quantity -= quantity;
-                    if (!_saledItems.ContainsKey(name)){ _saledItems[name] = quantity;}
+                    if (!_saledItems.ContainsKey(item.Name)){ _saledItems[item.Name] = quantity;}
                     else
                     {
-                        _saledItems[name] += quantity;
+                        _saledItems[item.Name] += quantity;
                     }
                     //Console.WriteLine($"name :{item.Name}\nQuantity :{quantity} \nPrize :{item.Price * quantity}");
 
-                    if (!_total.ContainsKey(name))
+                    if (!_total.ContainsKey(item.Name) ||!_createNewInvoice.ContainsKey(item.Name))
                     {
-                        _total[name] = new ItemsEntity(name, quantity, item.Price * quantity);
+                        _total[item.Name] = new ItemsEntity(item.Name, quantity, item.Price * quantity,item.ID);
+                        _createNewInvoice[item.Name] = new ItemsEntity(item.Name, quantity, item.Price * quantity,item.ID);
                         totalPrice += (item.Price * quantity);
-
+                        currentTotalPrize += (item.Price * quantity);
                         //Console.WriteLine($"name :{item.Name}\nQuantity :{quantity} \nPrize :{item.Price * quantity}");
                         Console.WriteLine();
 
@@ -91,10 +154,12 @@ namespace GroceryManagement
                     else
                     {
 
-                        _total[name].Quantity += quantity;
-                        _total[name].Price = item.Price * _total[name].Quantity;
+                        _total[item.Name].Quantity += quantity;
+                        _total[item.Name].Price = item.Price * _total[item.Name].Quantity;
+                        _createNewInvoice[item.Name].Quantity += quantity;
+                        _createNewInvoice[item.Name].Price = item.Price * _total[item.Name].Quantity;
                         totalPrice += (item.Price * quantity);
-
+                        currentTotalPrize += (item.Price * quantity);
                         //Console.WriteLine($"name :{item.Name}\nQuantity :{item.Quantity += quantity} \nPrize :{item.Price * quantity}");
 
                     }
@@ -108,23 +173,30 @@ namespace GroceryManagement
             }
 
         }
-        public  void SaledData()
+
+        /// <summary>
+        /// Displays a summary of today's sales, including sold items and total sales amount, 
+        /// along with the current available stock details.
+        /// </summary>
+        public void SaledDataReport()
         {
             try
             {
-                foreach (KeyValuePair<string, int> data in _saledItems)
-                {
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("name :" + data.Key + " Sold :" + data.Value);
-                }
                 Console.WriteLine();
-                Console.WriteLine("---Available Items---");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine("Today's Sales Summary and Available Stock");
+                Console.WriteLine();
+                foreach (KeyValuePair<string, double> data in _saledItems)
+                {
+                    Console.WriteLine("Name :" + data.Key + " Sold :" + data.Value);
+                }
+                Console.WriteLine("Total Amount of Today's Sales :" + totalPrice);
+                Console.WriteLine();
+                Console.WriteLine("---Available Stock---");
                 Console.WriteLine();
                 foreach (KeyValuePair<string, ItemsEntity> item in _items)
                 {
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Name :" + item.Key + " quantity:" + item.Value.Quantity);
-
+                    Console.WriteLine("Name :" + item.Value.Name + " Quantity:" + item.Value.Quantity);
                 }
                 Console.WriteLine();
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -134,7 +206,12 @@ namespace GroceryManagement
                 Console.WriteLine(e.Message);
             }
         }
-        public void addAnother()
+
+        /// <summary>
+        /// Manages the process of adding items, removing items, or generating the final bill 
+        /// while providing an interactive menu for the user.
+        /// </summary>
+        public void AddAnotherItem()
         {
             try
             {
@@ -145,9 +222,9 @@ namespace GroceryManagement
                 {
                     Console.WriteLine("1. Add Another Item");
                     Console.WriteLine("2. Remove Item");
-                    Console.WriteLine("3. Exit");
+                    Console.WriteLine("3. Generate Bill");
                     Console.WriteLine();
-                    Console.WriteLine("Do You Need Another Item :");
+                    Console.WriteLine("Enter Your Choice :");
                     string add = Console.ReadLine();
                     int select = int.Parse(add);
 
@@ -157,18 +234,20 @@ namespace GroceryManagement
                             GenerateBill();
                             break;
                         case 2:
-                            RemoveItem();
+                            RemoveItemFromCart();
                             break;
 
                         case 3:
                             IsSelect = false;
-                            totalAmount();
+                            TotalAmount();
                             Console.WriteLine();
                             Console.WriteLine("        Thank You...!");
                             Console.WriteLine();
+                            _createNewInvoice.Clear();
+                            currentTotalPrize = 0;
                             break;
                         default:
-                            Console.WriteLine("invalid option , Choose 1,2 or 3");
+                            Console.WriteLine("Invalid option , Choose 1,2 or 3");
                             break;
                     }
                 }
@@ -178,22 +257,29 @@ namespace GroceryManagement
                 Console.WriteLine(e.Message);
             }
         }
-        public void totalAmount()
+
+        /// <summary>
+        /// Displays the total amount for the current invoice, showing item details, quantities, and prices.
+        /// </summary>
+        public void TotalAmount()
         {
             try
             {
-                Console.WriteLine();
-                Console.WriteLine($"Name :   Quantity :         Price :");
-
-                foreach (KeyValuePair<string, ItemsEntity> totalItems in _total)
+                if (_createNewInvoice.Count > 0)
                 {
-
-                    Console.WriteLine($"{totalItems.Key}    {totalItems.Value.Quantity}                 {totalItems.Value.Price}  ");
                     Console.WriteLine();
+                    Console.WriteLine($"Name :   Quantity :         Price :");
 
+                    foreach (KeyValuePair<string, ItemsEntity> totalItems in _createNewInvoice)
+                    {
+
+                        Console.WriteLine($"{totalItems.Key}    {totalItems.Value.Quantity}                 {totalItems.Value.Price}  ");
+                        Console.WriteLine();
+
+                    }
+                    Console.WriteLine("------------------------------------------");
+                    Console.WriteLine("Total Amount :              " + currentTotalPrize);
                 }
-                Console.WriteLine("------------------------------------------");
-                Console.WriteLine("Total Amount :              " + totalPrice);
             }
             catch (Exception e)
             {
@@ -201,53 +287,74 @@ namespace GroceryManagement
             }
             
         }
-        public void RemoveItem()
+
+        /// <summary>
+        /// Allows the user to remove an item from the cart by specifying the item ID and quantity,
+        /// updates the total amount, and manages the stock and sales data accordingly.
+        /// </summary>
+        public void RemoveItemFromCart()
         {
             try
             {
-                Console.WriteLine();
-                Console.WriteLine("Enter Item Name to Remove :");
-                string name = Console.ReadLine();
-                name=name.ToLower();
-                if (!_total.ContainsKey(name))
+                if (_createNewInvoice.Count > 0)
                 {
-                    Console.WriteLine("This Item is not in the bill");
-                }
-                else
-                {
-                    Console.WriteLine($"Enter the quantity to remove for {name}");
-                    string quantityS = Console.ReadLine();
-                    int removeQuantity = int.Parse(quantityS);
-                    if (removeQuantity <= 0)
+                    Console.WriteLine();
+                    
+                    Console.WriteLine("Enter Item Id to Remove :");
+                    string id = Console.ReadLine();
+                    id = id.ToLower();
+                    ItemsEntity item = _items[id];
+                    if (!_createNewInvoice.ContainsKey(item.Name))
                     {
-                        Console.WriteLine("Enter the valid quantity");
-
-                    }
-                    if (removeQuantity > _total[name].Quantity)
-                    {
-                        Console.WriteLine("Cannot Remove more then what was added");
+                        Console.WriteLine("This Item is not in the bill");
                     }
                     else
                     {
-                        _total[name].Quantity -= removeQuantity;
-                        _total[name].Price -= removeQuantity * _items[name].Price;
-                        totalPrice-= removeQuantity * _items[name].Price;
-                        _saledItems[name] -= removeQuantity;
-                    }
-                    if (_total[name].Quantity == 0)
-                    {
-                        _total.Remove(name);
-                       
-                    }
+                        Console.WriteLine($"Enter the quantity to remove for {item.Name}");
+                        string quantityS = Console.ReadLine();
+                        double removeQuantity = double.Parse(quantityS);
+                        if (removeQuantity <= 0)
+                        {
+                            Console.WriteLine("Enter the valid quantity");
 
-                    _items[name].Quantity += removeQuantity;
+                        }
+                        if (removeQuantity > _createNewInvoice[item.Name].Quantity)
+                        {
+                            Console.WriteLine("Cannot Remove more then what was added");
+
+                        }
+                        else
+                        {
+                            _createNewInvoice[item.Name].Quantity -= removeQuantity;
+                            _createNewInvoice[item.Name].Price -= removeQuantity * _items[id].Price;
+                            currentTotalPrize -= removeQuantity * _items[id].Price;
+                            totalPrice -= removeQuantity * _items[id].Price;
+                            _saledItems[item.Name] -= removeQuantity;
+
+                        }
+                        if (_createNewInvoice[item.Name].Quantity == 0)
+                        {
+                            _createNewInvoice.Remove(item.Name);
+                            _saledItems.Remove(item.Name);
+                        }
+
+                        _items[id].Quantity += removeQuantity;
+                    }
+                    TotalAmount();
                 }
-                totalAmount();
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Cart is Empty , Add Items...");
+                    Console.WriteLine();
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
+       
+       
     }
 }
