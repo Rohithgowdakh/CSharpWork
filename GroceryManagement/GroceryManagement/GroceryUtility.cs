@@ -52,31 +52,36 @@ namespace GroceryManagement
                 Console.WriteLine("Enter Your Choice :");
 
                 string input = Console.ReadLine();
-                int choice = int.Parse(input);
-                if (choice > 0 && choice < 5)
+                int choice;
+                if (int.TryParse(input, out choice))
                 {
-                    switch (choice)
+                    if (choice > 0 && choice < 5)
                     {
-                        case 1:
-                            DisplayItemsFromStock();
-                            break;
-                        case 2:
-                            AddAnotherItem();
-                            break;
-                        case 3:
-                            SaledDataReport();
-                            break;
-                        case 4:
-                            Console.WriteLine("Exiting the Application.");
-                            _createNewInvoice.Clear();
-                            currentTotalPrize = 0;
-                            notExit = false;
-                            return;
-                        default:Console.WriteLine("Invalid Choice ,Enter a Valid Choice");
-                            break;
+                        switch (choice)
+                        {
+                            case 1:
+                                DisplayItemsFromStock();
+                                break;
+                            case 2:
+                                AddAnotherItem();
+                                break;
+                            case 3:
+                                SaledDataReport();
+                                break;
+                            case 4:
+                                Console.WriteLine("Exiting the Application.");
+                                _createNewInvoice.Clear();
+                                currentTotalPrize = 0;
+                                notExit = false;
+                                return;
+                            default:
+                                Console.WriteLine("Invalid Choice ,Enter a Valid Choice");
+                                break;
+                        }
                     }
+                    else { Console.WriteLine("Invalid Input Please try again"); Console.WriteLine(); }
                 }
-                else { Console.WriteLine("Invalid Input Please try again"); Console.WriteLine(); }
+                else { Console.WriteLine("Enter a valid Choise "); }
             }
         }
 
@@ -113,6 +118,7 @@ namespace GroceryManagement
                 Console.WriteLine("Enter Item Id :");
                 string id = Console.ReadLine();
                 id=id.ToLower();
+                if (id == "$") { Console.WriteLine("Enter a Valid Item Id"); return; }
                 if (!_items.ContainsKey(id))
                 {
                     Console.WriteLine("This Item Not Available");
@@ -226,30 +232,33 @@ namespace GroceryManagement
                     Console.WriteLine();
                     Console.WriteLine("Enter Your Choice :");
                     string add = Console.ReadLine();
-                    int select = int.Parse(add);
-
-                    switch (select)
+                    int select;
+                    if (int.TryParse(add, out select))
                     {
-                        case 1:
-                            GenerateBill();
-                            break;
-                        case 2:
-                            RemoveItemFromCart();
-                            break;
+                        switch (select)
+                        {
+                            case 1:
+                                GenerateBill();
+                                break;
+                            case 2:
+                                RemoveItemFromCart();
+                                break;
 
-                        case 3:
-                            IsSelect = false;
-                            TotalAmount();
-                            Console.WriteLine();
-                            Console.WriteLine("        Thank You...!");
-                            Console.WriteLine();
-                            _createNewInvoice.Clear();
-                            currentTotalPrize = 0;
-                            break;
-                        default:
-                            Console.WriteLine("Invalid option , Choose 1,2 or 3");
-                            break;
+                            case 3:
+                                IsSelect = false;
+                                TotalAmount();
+                                Console.WriteLine();
+                                Console.WriteLine("        Thank You...!");
+                                Console.WriteLine();
+                                _createNewInvoice.Clear();
+                                currentTotalPrize = 0;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid option , Choose 1,2 or 3");
+                                break;
+                        }
                     }
+                    else { Console.WriteLine("Enter a Valid Choise"); }
                 }
             }
             catch (Exception e)
