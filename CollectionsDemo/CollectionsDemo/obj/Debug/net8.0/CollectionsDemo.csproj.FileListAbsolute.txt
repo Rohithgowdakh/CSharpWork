@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\bin\Debug\net8.0\CollectionsDemo.exe
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\bin\Debug\net8.0\CollectionsDemo.deps.json
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\bin\Debug\net8.0\CollectionsDemo.runtimeconfig.json
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\bin\Debug\net8.0\CollectionsDemo.dll
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\bin\Debug\net8.0\CollectionsDemo.pdb
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.sourcelink.json
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.dll
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\refint\CollectionsDemo.dll
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.pdb
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\CollectionsDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\CollectionsDemo\CollectionsDemo\obj\Debug\net8.0\ref\CollectionsDemo.dll
