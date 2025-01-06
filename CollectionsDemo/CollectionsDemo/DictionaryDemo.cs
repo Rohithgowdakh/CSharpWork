@@ -24,9 +24,12 @@ namespace CollectionsDemo
             DictionaryDemo d1 = new DictionaryDemo(100, "Manu", 21);
             DictionaryDemo d2 = new DictionaryDemo(101, "Sai", 22);
             DictionaryDemo d3 = new DictionaryDemo(102, "Rohith", 21);
+            DictionaryDemo d4 = new DictionaryDemo(103, "Kiran", 25);
+
             demo[d1.Name] = d1;
             demo[d2.Name] = d2;
             demo[d3.Name] = d3;
+            demo[d4.Name] = d4;
             foreach(KeyValuePair<string , DictionaryDemo> dd in demo)       
             {
                 Console.WriteLine(dd.Value.Eid+" "+dd.Key+" "+dd.Value.Age);
