@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\LINQDemo\LINQDemo\bin\Debug\net8.0\LINQDemo.exe
+D:\CSharpWorkspace\LINQDemo\LINQDemo\bin\Debug\net8.0\LINQDemo.deps.json
+D:\CSharpWorkspace\LINQDemo\LINQDemo\bin\Debug\net8.0\LINQDemo.runtimeconfig.json
+D:\CSharpWorkspace\LINQDemo\LINQDemo\bin\Debug\net8.0\LINQDemo.dll
+D:\CSharpWorkspace\LINQDemo\LINQDemo\bin\Debug\net8.0\LINQDemo.pdb
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.sourcelink.json
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.dll
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\refint\LINQDemo.dll
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.pdb
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\LINQDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\LINQDemo\LINQDemo\obj\Debug\net8.0\ref\LINQDemo.dll
