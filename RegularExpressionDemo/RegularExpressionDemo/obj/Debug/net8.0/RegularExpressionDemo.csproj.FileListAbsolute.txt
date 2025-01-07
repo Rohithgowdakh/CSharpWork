@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.sourcelink.json
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\bin\Debug\net8.0\RegularExpressionDemo.exe
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\bin\Debug\net8.0\RegularExpressionDemo.deps.json
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\bin\Debug\net8.0\RegularExpressionDemo.runtimeconfig.json
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\bin\Debug\net8.0\RegularExpressionDemo.dll
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\bin\Debug\net8.0\RegularExpressionDemo.pdb
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.dll
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\refint\RegularExpressionDemo.dll
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.pdb
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\RegularExpressionDemo.genruntimeconfig.cache
+D:\CSharpWorkspace\RegularExpressionDemo\RegularExpressionDemo\obj\Debug\net8.0\ref\RegularExpressionDemo.dll
