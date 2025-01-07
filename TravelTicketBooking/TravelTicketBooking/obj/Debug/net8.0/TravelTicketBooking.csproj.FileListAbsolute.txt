@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\bin\Debug\net8.0\TravelTicketBooking.exe
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\bin\Debug\net8.0\TravelTicketBooking.deps.json
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\bin\Debug\net8.0\TravelTicketBooking.runtimeconfig.json
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\bin\Debug\net8.0\TravelTicketBooking.dll
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\bin\Debug\net8.0\TravelTicketBooking.pdb
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.AssemblyInfo.cs
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.sourcelink.json
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.dll
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\refint\TravelTicketBooking.dll
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.pdb
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\TravelTicketBooking.genruntimeconfig.cache
+D:\CSharpWorkspace\TravelTicketBooking\TravelTicketBooking\obj\Debug\net8.0\ref\TravelTicketBooking.dll
