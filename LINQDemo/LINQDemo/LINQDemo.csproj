@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>LINQDemo.Class2</StartupObject>
+    <StartupObject>LINQDemo.LinqConcepts</StartupObject>
   </PropertyGroup>
 
 </Project>
