@@ -7,6 +7,7 @@
         {
             ticketCancelObj=ticketBook;
         }
+        
         /// <summary>
         /// Displays all bookings, allows the user to select a booking to cancel, and updates the ticket count and filled seats accordingly.
         /// Removes the booking if all tickets are canceled.

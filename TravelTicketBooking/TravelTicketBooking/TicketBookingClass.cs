@@ -15,43 +15,53 @@
             InitEconomyClassFlights();
             InitLocation();
         }
+        
         /// <summary>
         /// Adds a list of locations to the _location list.
         /// </summary>
         private void InitLocation()
         {
-            _location.Add("new york");
-            _location.Add("los angeles");
-            _location.Add("london");
-            _location.Add("paris");
-            _location.Add("berlin");
-            _location.Add("tokyo");
-            _location.Add("sydney");
-            _location.Add("dubai");
-            _location.Add("rome");
-            _location.Add("moscow");
-            _location.Add("toronto");
-            _location.Add("seoul");
-            _location.Add("singapore");
-            _location.Add("madrid");
-            _location.Add("toronto");
-            _location.Add("mumbai");
-            _location.Add("hong kong");
-            _location.Add("bangkok");
-            _location.Add("dubai");
-            _location.Add("rio de janeiro");
-            _location.Add("cape town");
-            _location.Add("toronto");
-            _location.Add("cairo");
-            _location.Add("beijing");
-            _location.Add("seoul");
-            _location.Add("mexico city");
-            _location.Add("san francisco");
-            _location.Add("amsterdam");
-            _location.Add("lisbon");
-            _location.Add("lagos");
-            _location.Add("bangalore");
+            try
+            {
+                _location.Add("new york");
+                _location.Add("los angeles");
+                _location.Add("london");
+                _location.Add("paris");
+                _location.Add("berlin");
+                _location.Add("tokyo");
+                _location.Add("sydney");
+                _location.Add("dubai");
+                _location.Add("rome");
+                _location.Add("moscow");
+                _location.Add("toronto");
+                _location.Add("seoul");
+                _location.Add("singapore");
+                _location.Add("madrid");
+                _location.Add("toronto");
+                _location.Add("mumbai");
+                _location.Add("hong kong");
+                _location.Add("bangkok");
+                _location.Add("dubai");
+                _location.Add("rio de janeiro");
+                _location.Add("cape town");
+                _location.Add("toronto");
+                _location.Add("cairo");
+                _location.Add("beijing");
+                _location.Add("seoul");
+                _location.Add("mexico city");
+                _location.Add("san francisco");
+                _location.Add("amsterdam");
+                _location.Add("lisbon");
+                _location.Add("lagos");
+                _location.Add("bangalore");
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
         }
+       
         /// <summary>
         /// Initializes the list of Economy Class flights with flight names, seat capacity, and filled seats.
         /// </summary>
@@ -71,6 +81,7 @@
                 throw;
             }
         }
+       
         /// <summary>
         /// Initializes the list of Business Class flights with flight names, seat capacity, and filled seats.
         /// </summary>
@@ -91,6 +102,7 @@
                 throw;
             }
         }
+        
         /// <summary>
         /// Allows the user to choose Business or Economy Class for flight booking, 
         /// checks if the input is valid, and returns the corresponding choice or an error message.
@@ -126,6 +138,7 @@
                 return -1;
             }
         }
+       
         /// <summary>
         /// Handles the ticket booking process based on the user's choice of Business or Economy Class. 
         /// Validates locations, travel date, and displays available flights. Finalizes the ticket booking 
@@ -157,7 +170,7 @@
                             }
                             DateTime travelDate = GetTravelDate();
                             if (travelDate == default) return;
-                            UpdateFlightAvailability(selectedFlight, fromLocation, toLocation + $"{(ticketChoice == 1 ? "Air Conditioning: Available " : "Air Conditioning: Disabled ")}", travelDate);
+                            UpdateFlightAvailability(selectedFlight, fromLocation, toLocation + $"{(ticketChoice == 1 ? " Air Conditioning: Available " : " Air Conditioning: Disabled ")}", travelDate);
                             Console.WriteLine("Flights Available for This Location\n");
                             for (int flight = 0; flight < selectedFlight.Count; flight++)
                             {
@@ -175,46 +188,66 @@
                 Console.WriteLine(e.Message);
             }
         }
+        
         /// <summary>
         /// Retrieves the list of flights based on the user's ticket choice (1 for Business Class, 2 for Economy Class). 
         /// Returns null if the choice is invalid.
         /// </summary>
         private List<FlightEntity> GetFlightListByClass(int ticketChoice)
         {
-            List<FlightEntity> selectedFlight;
-            switch (ticketChoice)
+            try
             {
-                case 1: return selectedFlight = _businessClass;
-                case 2: return selectedFlight = _economyClass;
-                default:
-                    Console.WriteLine("Invalid choice! Please select 1 for Business Class or 2 for Economy Class.");
-                    return selectedFlight = null;
+                List<FlightEntity> selectedFlight;
+                switch (ticketChoice)
+                {
+                    case 1: return selectedFlight = _businessClass;
+                    case 2: return selectedFlight = _economyClass;
+                    default:
+                        Console.WriteLine("Invalid choice! Please select 1 for Business Class or 2 for Economy Class.");
+                        return selectedFlight = null;
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
+        
         /// <summary>
         /// Prompts the user to enter a travel date in the format (dd-mm-yyyy), validates the input, 
         /// and returns the date if valid and in the present or future. Returns default if the input is invalid after 3 attempts.
         /// </summary>
         private DateTime GetTravelDate()
         {
-            for (int i = 0; i < 3; i++)
+            try
             {
-                Console.WriteLine("Enter Date (dd-mm-yyyy) of Travel :");
-                string date = Console.ReadLine();
-                DateTime travelDate;
-                if (DateTime.TryParseExact(date, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out travelDate))
+                for (int i = 0; i < 3; i++)
                 {
-                    if (travelDate >= DateTime.Today)
+                    Console.WriteLine("Enter Date (dd-mm-yyyy) of Travel :");
+                    string date = Console.ReadLine();
+                    DateTime travelDate;
+                    if (DateTime.TryParseExact(date, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out travelDate))
                     {
-                        return travelDate;
-                    }
-                    else { Console.WriteLine("You can Book for Today and Future Days Only"); }
+                        if (travelDate >= DateTime.Today)
+                        {
+                            return travelDate;
+                        }
+                        else { Console.WriteLine("You can Book for Today and Future Days Only"); }
 
+                    }
+                    else { Console.WriteLine("Invalid Date Formate , Enter the Date in the Formate (dd-mm-yyyy)"); }
                 }
-                else { Console.WriteLine("Invalid Date Formate , Enter the Date in the Formate (dd-mm-yyyy)"); }
+                return default;
             }
-            return default;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return default;
+            }
         }
+       
         /// <summary>
         /// Updates the availability of flights by checking bookings for the specified travel date, 
         /// source, and destination locations. If no matching booking is found, sets filled seats to zero.
@@ -244,6 +277,7 @@
                 Console.WriteLine(e.Message);
             }
         }
+        
         /// <summary>
         /// Finalizes the ticket booking process by allowing the user to select a flight, confirm the number of tickets, 
         /// and validate booking details. Updates flight availability and booking records or cancels the process based on user input.
@@ -271,7 +305,7 @@
                             {
                                 Console.BackgroundColor = ConsoleColor.White;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"Flight Ticket\n\nFrom :   {fromLocation}\n\nTo :   {toLocation}\n\n{(ticketChoice == 1 ? " Air Conditioning: Available " : " Air Conditioning: Disabled ")}\n\nFlight Name :   {selectedFlight[flightIndex - 1].FlightName}\n\n" +
+                                Console.WriteLine($"Flight Ticket\n\nFrom :   {fromLocation}\n\nTo :   {toLocation}\n\n{(ticketChoice == 1 ? "Air Conditioning: Available " : "Air Conditioning: Disabled ")}\n\nFlight Name :   {selectedFlight[flightIndex - 1].FlightName}\n\n" +
                                                     $"Class : {(ticketChoice == 1 ? "Business Class" : "Economy Class")}\n\nBooked Tickets Count : {ticketsToBook}\n\nYour Travel Date Is : {travelDate.ToString("dddd, dd MMMM yyyy")}\n\nThank You For Booking...\n\n");
                                 selectedFlight[flightIndex - 1].FilledSeats += ticketsToBook;
                                 Console.WriteLine($"Available Seats :{selectedFlight[flightIndex - 1].AvailableSeats}");
