@@ -10,22 +10,23 @@ namespace TravelTicketBooking
     {
         public string FromLocation {  get; set; }
         public string ToLocation { get; set; }
-
-        public string BusName {  get; set; }
+        public string FlightName {  get; set; }
+        public string TicketClass {  get; set; }
         public DateTime Date { get; set; }
-
         public int TicketCount {  get; set; }
-
         public int FilledSeats {  get; set; }
-        public TravelEntity( string fromLocation,string toLocation,string busName,DateTime date,int ticketCount,int filledSeats)
+        //Pass Object to the constuctor
+        public TravelEntity(TravelEntity travelEntity)
         {
-           
-            this.FromLocation = fromLocation;
-            this.ToLocation = toLocation;
-            this.BusName = busName;
-            this.Date = date;
-            this.TicketCount = ticketCount;
-            this.FilledSeats = filledSeats;
+
+            this.FromLocation = travelEntity.FromLocation;
+            this.ToLocation   = travelEntity.ToLocation  ;
+            this.FlightName = travelEntity.FlightName;
+            this.Date = travelEntity.Date;
+            this.TicketCount = travelEntity.TicketCount;
+            this.FilledSeats  = travelEntity.FilledSeats;
+            this.TicketClass = travelEntity.TicketClass;
         }
+        public TravelEntity() { }
     }
 }
