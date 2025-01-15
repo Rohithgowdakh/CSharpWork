@@ -22,6 +22,7 @@ namespace TravelTicketBooking
             ticketCancellation = new TicketCancelling(ticketBooking);
             checkTicketBookings = new CheckTicketBookings(ticketBooking);
         }
+       
         /// <summary>
         /// Prompts the user for an admin username and password, authenticates the login, and initializes services if successful.
         /// </summary>
@@ -59,6 +60,7 @@ namespace TravelTicketBooking
                 Console.WriteLine(e.Message);
             }
         }
+       
         /// <summary>
         /// Displays the available services (book, cancel, check booking, or exit) and processes the user's choice.
         /// </summary>

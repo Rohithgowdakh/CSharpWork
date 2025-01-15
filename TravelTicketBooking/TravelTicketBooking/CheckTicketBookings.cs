@@ -14,6 +14,7 @@ namespace TravelTicketBooking
         {
             this.CheckingTicket = CheckingTicket;
         }
+        
         /// <summary>
         /// Displays all bookings and allows the user to search for a specific booking by ID, showing its details if found.
         /// </summary>
@@ -26,7 +27,7 @@ namespace TravelTicketBooking
                 Console.WriteLine("---------------Your Bookings---------------------\n");
                 for (int book = 0; book < bookings.Count; book++)
                 {
-                    Console.WriteLine($"{book + 1}. Source : {bookings[book].FromLocation} Destination : {bookings[book].ToLocation} Date : {bookings[book].Date}\n");
+                    Console.WriteLine($"{book + 1}. Source : {bookings[book].FromLocation} Destination : {bookings[book].ToLocation} Ticket Class : {bookings[book].TicketClass} Date : {bookings[book].Date}\n");
                 }
                 for (int i = 0; i < 3; i++)
                 {
@@ -40,8 +41,8 @@ namespace TravelTicketBooking
                             {
                                 if (bookingId == book + 1)
                                 {
-                                    Console.WriteLine($"{book + 1}. Source : {bookings[book].FromLocation} Destination : {bookings[book].ToLocation} BusName : {bookings[book].FlightName} Date : {bookings[book].Date}\nTicket Count : {bookings[book].TicketCount}" +
-                                        $" Ticket Class : {bookings[book].TicketClass}");
+                                    Console.WriteLine($"\n{book + 1}. Source : {bookings[book].FromLocation} Destination : {bookings[book].ToLocation} BusName : {bookings[book].FlightName} Date : {bookings[book].Date}\nTicket Count : {bookings[book].TicketCount}" +
+                                        $" Ticket Class : {bookings[book].TicketClass}\n\n");
                                     return;
                                 }
                             }
