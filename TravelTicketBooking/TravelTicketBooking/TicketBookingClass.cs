@@ -2,10 +2,11 @@
 {
     public class TicketBookingClass
     {
-        public List<FlightEntity> _businessClass = new List<FlightEntity>();
-        public List<FlightEntity> _economyClass = new List<FlightEntity>();
+
+        public List<FlightModel> _businessClass = new List<FlightModel>();
+        public List<FlightModel> _economyClass = new List<FlightModel>();
         public List<string> _location = new List<string>();
-        public List<TravelEntity> _bookings { get; set; } = new List<TravelEntity>();
+        public List<TravelModel> _bookings { get; set; } = new List<TravelModel>();
         /// <summary>
         /// Initializes the flight and location lists.
         /// </summary>
@@ -149,7 +150,7 @@
             try
             {
                 bool businessClassTicketBooking = true;
-                List<FlightEntity> selectedFlight = GetFlightListByClass(ticketChoice);
+                List<FlightModel> selectedFlight = GetFlightListByClass(ticketChoice);
                 if (selectedFlight == null) return;
                 while (businessClassTicketBooking)
                 {
@@ -170,7 +171,7 @@
                             }
                             DateTime travelDate = GetTravelDate();
                             if (travelDate == default) return;
-                            UpdateFlightAvailability(selectedFlight, fromLocation, toLocation + $"{(ticketChoice == 1 ? " Air Conditioning: Available " : " Air Conditioning: Disabled ")}", travelDate);
+                            UpdateFlightAvailability(selectedFlight, fromLocation, toLocation , travelDate);
                             Console.WriteLine("Flights Available for This Location\n");
                             for (int flight = 0; flight < selectedFlight.Count; flight++)
                             {
@@ -193,11 +194,11 @@
         /// Retrieves the list of flights based on the user's ticket choice (1 for Business Class, 2 for Economy Class). 
         /// Returns null if the choice is invalid.
         /// </summary>
-        private List<FlightEntity> GetFlightListByClass(int ticketChoice)
+        private List<FlightModel> GetFlightListByClass(int ticketChoice)
         {
             try
             {
-                List<FlightEntity> selectedFlight;
+                List<FlightModel> selectedFlight;
                 switch (ticketChoice)
                 {
                     case 1: return selectedFlight = _businessClass;
@@ -230,11 +231,11 @@
                     DateTime travelDate;
                     if (DateTime.TryParseExact(date, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out travelDate))
                     {
-                        if (travelDate >= DateTime.Today)
+                        if (travelDate >= DateTime.Today && travelDate.Year<2026)
                         {
                             return travelDate;
                         }
-                        else { Console.WriteLine("You can Book for Today and Future Days Only"); }
+                        else { Console.WriteLine("You can book tickets for today and future dates only (within the year 2025)."); }
 
                     }
                     else { Console.WriteLine("Invalid Date Formate , Enter the Date in the Formate (dd-mm-yyyy)"); }
@@ -247,48 +248,47 @@
                 return default;
             }
         }
-       
+
         /// <summary>
         /// Updates the availability of flights by checking bookings for the specified travel date, 
         /// source, and destination locations. If no matching booking is found, sets filled seats to zero.
         /// </summary>
-        private void UpdateFlightAvailability(List<FlightEntity> flights, string fromLocation, string toLocation, DateTime travelDate)
+        private void UpdateFlightAvailability(List<FlightModel> flights, string fromLocation, string toLocation, DateTime travelDate)
         {
             try
             {
                 foreach (var flight in flights)
                 {
-                    bool isMatched = false;
+                    flight.FilledSeats = 0;
+
                     foreach (var booking in _bookings)
                     {
                         if (booking.Date == travelDate && booking.FlightName == flight.FlightName &&
                             booking.FromLocation == fromLocation && booking.ToLocation == toLocation)
                         {
-                            isMatched = true;
-                            flight.FilledSeats = booking.FilledSeats;
+                            flight.FilledSeats += booking.TicketCount;
                         }
                     }
-                    if (!isMatched) flight.FilledSeats = 0;
                 }
             }
             catch (Exception e)
             {
-
-                Console.WriteLine(e.Message);
+                Console.WriteLine($"Error updating flight availability: {e.Message}");
             }
         }
-        
+
+
         /// <summary>
         /// Finalizes the ticket booking process by allowing the user to select a flight, confirm the number of tickets, 
         /// and validate booking details. Updates flight availability and booking records or cancels the process based on user input.
         /// </summary>
-        private void FinalFlightTicket(List<FlightEntity> selectedFlight, string fromLocation, string toLocation, int ticketChoice, DateTime travelDate,ref bool businessClassTicketBooking )
+        private void FinalFlightTicket(List<FlightModel> selectedFlight, string fromLocation, string toLocation, int ticketChoice, DateTime travelDate,ref bool businessClassTicketBooking )
         {
             try
             {
                 Console.WriteLine("Select the Flight You Wish to Travel On:\n");
                 int flightIndex = int.Parse(Console.ReadLine());
-                if (selectedFlight[flightIndex - 1].AvailableSeats == 0) { Console.WriteLine($"No available seats on {selectedFlight[flightIndex - 1].FlightName} flight. Please choose another flight."); selectedFlight.Remove(selectedFlight[flightIndex - 1]); return; }
+                if (selectedFlight[flightIndex - 1].AvailableSeats == 0) { Console.WriteLine($"No available seats on {selectedFlight[flightIndex - 1].FlightName} flight. Please choose another flight."); return; }
                 if (flightIndex > 0 && flightIndex <= selectedFlight.Count)
                 {
                     Console.WriteLine($"How Many Tickets Would You Like To Book (Maximum {selectedFlight[flightIndex - 1].AvailableSeats} Tickets):\n");
@@ -305,19 +305,19 @@
                             {
                                 Console.BackgroundColor = ConsoleColor.White;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"Flight Ticket\n\nFrom :   {fromLocation}\n\nTo :   {toLocation}\n\n{(ticketChoice == 1 ? "Air Conditioning: Available " : "Air Conditioning: Disabled ")}\n\nFlight Name :   {selectedFlight[flightIndex - 1].FlightName}\n\n" +
+                                Console.WriteLine($"Flight Ticket\n\nFrom :   {fromLocation}\n\nTo :   {toLocation}\n\nFlight Name :   {selectedFlight[flightIndex - 1].FlightName}\n\n" +
                                                     $"Class : {(ticketChoice == 1 ? "Business Class" : "Economy Class")}\n\nBooked Tickets Count : {ticketsToBook}\n\nYour Travel Date Is : {travelDate.ToString("dddd, dd MMMM yyyy")}\n\nThank You For Booking...\n\n");
                                 selectedFlight[flightIndex - 1].FilledSeats += ticketsToBook;
                                 Console.WriteLine($"Available Seats :{selectedFlight[flightIndex - 1].AvailableSeats}");
-                                TravelEntity travelEntity = new TravelEntity();
+                                TravelModel travelEntity = new TravelModel();
                                 travelEntity.FromLocation = fromLocation;
-                                travelEntity.ToLocation = toLocation + $"{(ticketChoice == 1 ? " Air Conditioning: Available " : " Air Conditioning: Disabled ")}";
+                                travelEntity.ToLocation = toLocation ;
                                 travelEntity.FlightName = selectedFlight[flightIndex - 1].FlightName;
                                 travelEntity.Date = travelDate;
                                 travelEntity.TicketCount = ticketsToBook;
                                 travelEntity.FilledSeats = selectedFlight[flightIndex - 1].FilledSeats;
                                 travelEntity.TicketClass = ticketChoice == 1 ? "Business Class" : "Economy Class";
-                                _bookings.Add(new TravelEntity(travelEntity));
+                                _bookings.Add(new TravelModel(travelEntity));
                                 confirmationConfirmed = false;
                                 businessClassTicketBooking = false;
                                 Console.BackgroundColor = ConsoleColor.Black;

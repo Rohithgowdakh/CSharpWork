@@ -22,7 +22,7 @@ namespace TravelTicketBooking
         {
             try
             {
-                List<TravelEntity> bookings = CheckingTicket._bookings;
+                List<TravelModel> bookings = CheckingTicket._bookings;
                 if (bookings == null || bookings.Count <= 0) { Console.WriteLine("No Bookings Found .\n"); return; }
                 Console.WriteLine("---------------Your Bookings---------------------\n");
                 for (int book = 0; book < bookings.Count; book++)
