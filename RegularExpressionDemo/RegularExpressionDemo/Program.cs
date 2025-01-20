@@ -19,14 +19,21 @@ namespace RegularExpressionDemo
         }
         public static void RegexForNumber(long number)
         {
-            string pattern = @"^\+?[1-9]\d{0,2}?[.-\s]?\(?\d{1-4}\)?[.-\s]?\d{1,4}[-.\s]?\d{1-9}$";
+            string pattern = @"^\+?([1-9]\d{0,2})?[.-\s]?\(?\d{1-4}\)?[.-\s]?\d{1,4}[-.\s]?\d{1-9}$";
+
             Regex regex = new Regex(pattern);
-            
+            MatchCollection match = regex.Matches(pattern);
+            foreach (var item in match)
+            {
+                Console.WriteLine(match);
+            }
         }
         static void Main(string[] args)
         {
             string email = "rohithkh2024@gmail.com";
             RegexForEmail(email);
+            long num = +91 - 123 - 4567;
+            RegexForNumber(num);
         }
     }
 }
