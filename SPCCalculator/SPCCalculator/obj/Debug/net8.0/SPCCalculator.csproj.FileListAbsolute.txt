@@ -1,0 +1,15 @@
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\bin\Debug\net8.0\SPCCalculator.exe
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\bin\Debug\net8.0\SPCCalculator.deps.json
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\bin\Debug\net8.0\SPCCalculator.runtimeconfig.json
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\bin\Debug\net8.0\SPCCalculator.dll
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\bin\Debug\net8.0\SPCCalculator.pdb
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.AssemblyInfo.cs
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.sourcelink.json
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.dll
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\refint\SPCCalculator.dll
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.pdb
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\SPCCalculator.genruntimeconfig.cache
+D:\CSharpWorkspace\SPCCalculator\SPCCalculator\obj\Debug\net8.0\ref\SPCCalculator.dll
