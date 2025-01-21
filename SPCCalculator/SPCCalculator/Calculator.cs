@@ -46,10 +46,10 @@ namespace SPCCalculator
                     else { Console.WriteLine("Invalid Input Please try again\n"); }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
         }
     }
