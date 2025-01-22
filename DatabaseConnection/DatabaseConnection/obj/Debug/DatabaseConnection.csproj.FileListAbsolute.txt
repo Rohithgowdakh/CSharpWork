@@ -1,0 +1,10 @@
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\bin\Debug\DatabaseConnection.exe.config
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\bin\Debug\DatabaseConnection.exe
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\bin\Debug\DatabaseConnection.pdb
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.csproj.AssemblyReference.cache
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.Form1.resources
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.Properties.Resources.resources
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.csproj.GenerateResource.cache
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.exe
+D:\CSharpWorkspace\DatabaseConnection\DatabaseConnection\obj\Debug\DatabaseConnection.pdb
