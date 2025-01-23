@@ -1,0 +1,5 @@
+D:\CSharpWorkspace\CRUDDatabaseDemo\CRUDDatabaseDemo\obj\Debug\net5.0\CRUDDatabaseDemo.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpWorkspace\CRUDDatabaseDemo\CRUDDatabaseDemo\obj\Debug\net5.0\CRUDDatabaseDemo.AssemblyInfoInputs.cache
+D:\CSharpWorkspace\CRUDDatabaseDemo\CRUDDatabaseDemo\obj\Debug\net5.0\CRUDDatabaseDemo.AssemblyInfo.cs
+D:\CSharpWorkspace\CRUDDatabaseDemo\CRUDDatabaseDemo\obj\Debug\net5.0\CRUDDatabaseDemo.csproj.CoreCompileInputs.cache
+D:\CSharpWorkspace\CRUDDatabaseDemo\CRUDDatabaseDemo\obj\Debug\net5.0\CRUDDatabaseDemo.sourcelink.json
