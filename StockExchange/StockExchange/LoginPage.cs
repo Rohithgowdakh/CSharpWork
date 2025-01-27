@@ -9,11 +9,13 @@ namespace StockExchange
     public class LoginPage
     {
         StockTransaction stock=new StockTransaction();
-        private string connectionString = "Data Source=ROHITH\\SQLEXPRESS;Initial Catalog=StockExchangeDB;User ID=sa;Password=data@1234;Encrypt=False";
+        private string connectionString = Global.connectionString;
         public string Email;
         // Initialize table
         public void InitializeLoginPage()
         {
+            stock.InitializeTransactionTable();
+            stock.InitializeUserHoldingsTable();
             string createTableQuery = @"
                 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Login' AND xtype='U')
                 CREATE TABLE Login (
@@ -43,174 +45,208 @@ namespace StockExchange
         // Register a new user
         public void RegisterUser()
         {
-            string userName, password, dob, phoneNumber, email;
-
-            // Validate Name
-            do
+            try
             {
-                Console.WriteLine("Enter Name (Only alphabets, max 100 characters):");
-                userName = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(userName) || !Regex.IsMatch(userName, @"^[A-Za-z\s]{1,100}$"));
+                string userName, password, dob, phoneNumber, email;
 
-            // Validate Password
-            do
-            {
-                Console.WriteLine("Enter Password (Minimum 6 characters):");
-                password = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(password) || password.Length < 6);
-
-            // Validate Date of Birth
-            do
-            {
-                Console.WriteLine("Enter Date of Birth (YYYY-MM-DD):");
-                dob = Console.ReadLine();
-            } while (!DateTime.TryParse(dob, out _));
-
-            // Validate Phone Number
-            do
-            {
-                Console.WriteLine("Enter Phone Number (10 digits):");
-                phoneNumber = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^\d{10}$"));
-
-            // Validate Email
-            do
-            {
-                Console.WriteLine("Enter Email (valid format):");
-                email = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"));
-
-            // Check if email already exists
-            string searchEmail = "SELECT COUNT(*) FROM Login WHERE Email=@Email";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(searchEmail, connection);
-                cmd.Parameters.AddWithValue("@Email", email);
-                try
+                // Validate Name
+                do
                 {
-                    connection.Open();
-                    int emailCount = (int)cmd.ExecuteScalar();
-                    if (emailCount > 0)
+                    Console.WriteLine("Enter Name (Only alphabets, max 100 characters):");
+                    userName = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(userName) || !Regex.IsMatch(userName, @"^[A-Za-z\s]{1,100}$"));
+
+                // Validate Password
+                do
+                {
+                    Console.WriteLine("Enter Password (Minimum 6 characters):");
+                    password = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(password) || password.Length < 6);
+
+                // Validate Date of Birth
+                do
+                {
+                    Console.WriteLine("Enter Date of Birth (YYYY-MM-DD):");
+                    dob = Console.ReadLine();
+                } while (!DateTime.TryParse(dob, out _));
+
+                // Validate Phone Number
+                do
+                {
+                    Console.WriteLine("Enter Phone Number (10 digits):");
+                    phoneNumber = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^\d{10}$"));
+
+                // Validate Email
+                do
+                {
+                    Console.WriteLine("Enter Email (valid format):");
+                    email = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"));
+
+                // Check if email already exists
+                string searchEmail = "SELECT COUNT(*) FROM Login WHERE Email=@Email";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(searchEmail, connection);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    try
                     {
-                        Console.WriteLine("An account with this email already exists. Please choose the login option.");
+                        connection.Open();
+                        int emailCount = (int)cmd.ExecuteScalar();
+                        if (emailCount > 0)
+                        {
+                            Console.WriteLine("An account with this email already exists. Please choose the login option.");
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
                         return;
                     }
                 }
-                catch (Exception ex)
+
+                // Hash the password
+                string hashedPassword = HashPassword(password);
+
+                // Insert new user into the database
+                string insertQuery = @"INSERT INTO Login (Name, Password, Dob, PhoneNumber, Email) 
+                                   VALUES (@Name, @Password, @Dob, @PhoneNumber, @Email)";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    Console.WriteLine(ex.Message);
-                    return;
+                    SqlCommand cmd = new SqlCommand(insertQuery, connection);
+                    cmd.Parameters.AddWithValue("@Name", userName);
+                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                    cmd.Parameters.AddWithValue("@Dob", DateTime.Parse(dob));
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("Registration Successful.");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
-
-            // Hash the password
-            string hashedPassword = HashPassword(password);
-
-            // Insert new user into the database
-            string insertQuery = @"INSERT INTO Login (Name, Password, Dob, PhoneNumber, Email) 
-                                   VALUES (@Name, @Password, @Dob, @PhoneNumber, @Email)";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            catch (Exception e)
             {
-                SqlCommand cmd = new SqlCommand(insertQuery, connection);
-                cmd.Parameters.AddWithValue("@Name", userName);
-                cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                cmd.Parameters.AddWithValue("@Dob", DateTime.Parse(dob));
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@Email", email);
 
-                try
-                {
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                    Console.WriteLine("Registration Successful.");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
+                Console.WriteLine(e.Message);
             }
         }
         // Login an existing user
         public bool LoginUser()
         {
-            string email, password;
-
-            // Validate Email
-            do
+            try
             {
-                Console.WriteLine("Enter Email:");
-                email = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"));
+                string email, password;
 
-            // Validate Password
-            do
-            {
-                Console.WriteLine("Enter Password:");
-                password = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(password));
-
-            // Retrieve stored hash from the database
-            string selectQuery = "SELECT Password FROM Login WHERE Email=@Email";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(selectQuery, connection);
-                cmd.Parameters.AddWithValue("@Email", email);
-
-                try
+                // Validate Email
+                do
                 {
-                    connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    Console.WriteLine("Enter Email:");
+                    email = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"));
 
-                    if (reader.Read())
+                // Validate Password
+                do
+                {
+                    Console.WriteLine("Enter Password:");
+                    password = Console.ReadLine();
+                } while (string.IsNullOrWhiteSpace(password));
+
+                // Retrieve stored hash from the database
+                string selectQuery = "SELECT Password FROM Login WHERE Email=@Email";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
                     {
-                        string storedHashedPassword = reader["Password"].ToString();
+                        connection.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
 
-                        // Verify the entered password against the stored hash
-                        if (VerifyPassword(password, storedHashedPassword))
+                        if (reader.Read())
                         {
-                            Console.WriteLine("Login Successful.");
-                            Global.loggedInEmail = email;
-                            stock.StockExchangeDashboard();
-                            return true;
+                            string storedHashedPassword = reader["Password"].ToString();
+
+                            // Verify the entered password against the stored hash
+                            if (VerifyPassword(password, storedHashedPassword))
+                            {
+                                Console.WriteLine("Login Successful.");
+                                Global.loggedInEmail = email;
+                                stock.CompaniesInitialization();
+                                stock.StockExchangeDashboard();
+                                return true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid password. Please try again.");
+                                return false;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Invalid password. Please try again.");
+                            Console.WriteLine("No account found with this email.");
                             return false;
                         }
                     }
-                    else
+                    catch (Exception e)
                     {
-                        Console.WriteLine("No account found with this email.");
+                        Console.WriteLine(e.Message);
                         return false;
                     }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    return false;
-                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return false;
             }
         }
         // Hash a password using SHA256
         private string HashPassword(string password)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            try
             {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                foreach (byte b in bytes)
+                using (SHA256 sha256 = SHA256.Create())
                 {
-                    builder.Append(b.ToString("x2")); // Convert to hexadecimal
+                    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                    StringBuilder builder = new StringBuilder();
+                    foreach (byte b in bytes)
+                    {
+                        builder.Append(b.ToString("x2")); // Convert to hexadecimal
+                    }
+                    return builder.ToString();
                 }
-                return builder.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
         // Verify a password against a stored hash
         private bool VerifyPassword(string enteredPassword, string storedHash)
         {
-            string enteredHash = HashPassword(enteredPassword);
-            return enteredHash == storedHash;
+            try
+            {
+                string enteredHash = HashPassword(enteredPassword);
+                return enteredHash == storedHash;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
     }
 }

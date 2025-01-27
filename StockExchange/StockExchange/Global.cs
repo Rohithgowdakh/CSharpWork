@@ -10,7 +10,7 @@ namespace StockExchange
     
     static public class Global
     {
-        static string connectionString = "Data Source=ROHITH\\SQLEXPRESS;Initial Catalog=StockExchangeDB;User ID=sa;Password=data@1234;Encrypt=False";
+        public static string connectionString = "Data Source=ROHITH\\SQLEXPRESS;Initial Catalog=StockExchangeDB;User ID=sa;Password=data@1234;Encrypt=False";
         public static string loggedInEmail = "";
         static public UserModel userModel = new UserModel();
         static public void readCurrentUserData()
