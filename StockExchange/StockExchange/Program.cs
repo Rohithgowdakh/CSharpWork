@@ -11,6 +11,7 @@ namespace StockExchange
         {
             LoginPage loginPage = new LoginPage();
             loginPage.InitializeLoginPage();
+            
             while (true)
             {
                 Console.WriteLine("\n1. Registration\n2. Login\n3. Exit");
