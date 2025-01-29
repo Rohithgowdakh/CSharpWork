@@ -3,43 +3,29 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.Data.SqlClient;
+using StockExchange.BusinessLayer;
+using StockExchange.DataAccessLayer;
 
 namespace StockExchange
 {
     public class LoginPage
     {
         StockTransaction stock=new StockTransaction();
-        private string connectionString = Global.connectionString;
         public string Email;
-        // Initialize table
-        public void InitializeLoginPage()
+        private ExchangeRepository _exchangeRepository;
+        private DataBridge _dataBridge;
+
+        public LoginPage()
         {
-            stock.InitializeTransactionTable();
-            stock.InitializeUserHoldingsTable();
-            string createTableQuery = @"
-                IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Login' AND xtype='U')
-                CREATE TABLE Login (
-                Id INT IDENTITY(1,1) PRIMARY KEY,
-                Name NVARCHAR(100),
-                Password NVARCHAR(255),
-                Dob DATE,
-                PhoneNumber NVARCHAR(15),
-                Email NVARCHAR(100),
-                Funds DECIMAL(18, 2) DEFAULT 0
-            );";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(createTableQuery, connection);
-                try
-                {
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
-            }
+            _exchangeRepository = new ExchangeRepository();
+            _dataBridge = new DataBridge(_exchangeRepository);
+        }
+        // Initialize table
+        public void InitializeAllTables()
+        {
+            _dataBridge.CreateLoginTable();
+            _dataBridge.CreateTransactionTable();
+            _dataBridge.CreateTransactionTable();
         }
 
         // Register a new user
@@ -86,7 +72,7 @@ namespace StockExchange
 
                 // Check if email already exists
                 string searchEmail = "SELECT COUNT(*) FROM Login WHERE Email=@Email";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(Global.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(searchEmail, connection);
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -113,7 +99,7 @@ namespace StockExchange
                 // Insert new user into the database
                 string insertQuery = @"INSERT INTO Login (Name, Password, Dob, PhoneNumber, Email) 
                                    VALUES (@Name, @Password, @Dob, @PhoneNumber, @Email)";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(Global.connectionString))
                 {
                     SqlCommand cmd = new SqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Name", userName);
@@ -161,48 +147,21 @@ namespace StockExchange
                     password = Console.ReadLine();
                 } while (string.IsNullOrWhiteSpace(password));
 
-                // Retrieve stored hash from the database
-                string selectQuery = "SELECT Password FROM Login WHERE Email=@Email";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+
+                string storedHashedPassword = _dataBridge.ProcessLoginBasedOnPassword(email, password);
+                // Verify the entered password against the stored hash
+                if (VerifyPassword(password, storedHashedPassword))
                 {
-                    SqlCommand cmd = new SqlCommand(selectQuery, connection);
-                    cmd.Parameters.AddWithValue("@Email", email);
-
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            string storedHashedPassword = reader["Password"].ToString();
-
-                            // Verify the entered password against the stored hash
-                            if (VerifyPassword(password, storedHashedPassword))
-                            {
-                                Console.WriteLine("Login Successful.");
-                                Global.loggedInEmail = email;
-                                stock.CompaniesInitialization();
-                                stock.StockExchangeDashboard();
-                                return true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid password. Please try again.");
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("No account found with this email.");
-                            return false;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                        return false;
-                    }
+                    Console.WriteLine("Login Successful.");
+                    Global.loggedInEmail = email;
+                    stock.CompaniesInitialization();
+                    stock.StockExchangeDashboard();
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid password. Please try again.");
+                    return false;
                 }
             }
             catch (Exception e)
@@ -212,6 +171,9 @@ namespace StockExchange
                 return false;
             }
         }
+
+        
+
         // Hash a password using SHA256
         private string HashPassword(string password)
         {
