@@ -10,20 +10,23 @@ namespace StockExchange
         public static void Main(string[] args)
         {
             LoginPage loginPage = new LoginPage();
-            loginPage.InitializeLoginPage();
+            loginPage.InitializeAllTables();
             
             while (true)
             {
                 Console.WriteLine("\n1. Registration\n2. Login\n3. Exit");
                 Console.WriteLine("Choose an option :");
-                int option=int.Parse(Console.ReadLine());
-                switch (option)
+                if (int.TryParse(Console.ReadLine(), out int option))
                 {
-                    case 1:loginPage.RegisterUser(); break;
-                    case 2:loginPage.LoginUser(); break;
-                    case 3:Console.WriteLine("Exiting application. Goodbye!");return;
-                    default:Console.WriteLine("Invalid option. Try again.");break;
+                    switch (option)
+                    {
+                        case 1: loginPage.RegisterUser(); break;
+                        case 2: loginPage.LoginUser(); break;
+                        case 3: Console.WriteLine("Exiting application. Goodbye!"); return;
+                        default: Console.WriteLine("Invalid option. Try again."); break;
+                    }
                 }
+                else Console.WriteLine("Please enter a valid option");
 
             }
         }
