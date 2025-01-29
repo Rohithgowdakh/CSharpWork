@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPCCalculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f08a27fc5907f10e573bb8a29bac038933a201b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea28eff1bc6381d3f939f7f884720369ddef95c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPCCalculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPCCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
