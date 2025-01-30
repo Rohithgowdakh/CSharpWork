@@ -38,7 +38,6 @@ namespace SPCCalculator
                                     Console.ReadKey();
                                     isTrue = false;
                                     break;
-
                             }
                         }
                         else { Console.WriteLine("Enter the valid choise:"); }

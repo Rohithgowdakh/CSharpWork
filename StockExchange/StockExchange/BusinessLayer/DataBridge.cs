@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +54,10 @@ namespace StockExchange.BusinessLayer
         public string ProcessLoginBasedOnPassword(string email, string password)
         {
             return _exchangeRepository.ProcessLoginBasedOnPassword(email, password);
+        }
+        public void SaveUserRegistrationDetails(string userName, string dob, string phoneNumber, string email, string hashedPassword)
+        {
+            _exchangeRepository.SaveUserRegistrationDetails(userName,dob,phoneNumber,email,hashedPassword);
         }
     }
 }

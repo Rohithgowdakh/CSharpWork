@@ -97,28 +97,7 @@ namespace StockExchange
                 string hashedPassword = HashPassword(password);
 
                 // Insert new user into the database
-                string insertQuery = @"INSERT INTO Login (Name, Password, Dob, PhoneNumber, Email) 
-                                   VALUES (@Name, @Password, @Dob, @PhoneNumber, @Email)";
-                using (SqlConnection connection = new SqlConnection(Global.connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand(insertQuery, connection);
-                    cmd.Parameters.AddWithValue("@Name", userName);
-                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                    cmd.Parameters.AddWithValue("@Dob", DateTime.Parse(dob));
-                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                    cmd.Parameters.AddWithValue("@Email", email);
-
-                    try
-                    {
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                        Console.WriteLine("Registration Successful.");
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                }
+                _dataBridge.SaveUserRegistrationDetails(userName, dob, phoneNumber, email, hashedPassword);
             }
             catch (Exception e)
             {
@@ -126,6 +105,9 @@ namespace StockExchange
                 Console.WriteLine(e.Message);
             }
         }
+
+        
+
         // Login an existing user
         public bool LoginUser()
         {

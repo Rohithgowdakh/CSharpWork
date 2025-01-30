@@ -9,6 +9,31 @@ namespace StockExchange.DataAccessLayer
 {
     public class ExchangeRepository
     {
+        public void SaveUserRegistrationDetails(string userName, string dob, string phoneNumber, string email, string hashedPassword)
+        {
+            string insertQuery = @"INSERT INTO Login (Name, Password, Dob, PhoneNumber, Email) 
+                                   VALUES (@Name, @Password, @Dob, @PhoneNumber, @Email)";
+            using (SqlConnection connection = new SqlConnection(Global.connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(insertQuery, connection);
+                cmd.Parameters.AddWithValue("@Name", userName);
+                cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                cmd.Parameters.AddWithValue("@Dob", DateTime.Parse(dob));
+                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                try
+                {
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("Registration Successful.");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
         /// <summary>
         /// Checks and creates the "Login" table with user details if it doesn't exist.
         /// </summary>
@@ -677,8 +702,20 @@ namespace StockExchange.DataAccessLayer
                                         double currentValue = shareCount * currentPrice;
                                         double profitLoss = currentValue - totalCost;
 
-                                        // Display the statement
+                                        if (profitLoss > 0)
+                                        {
+                                            Console.BackgroundColor = ConsoleColor.Green;
+                                            Console.ForegroundColor = ConsoleColor.White;
+                                        }
+                                        else if (profitLoss < 0)
+                                        {
+                                            Console.BackgroundColor = ConsoleColor.Red;
+                                            Console.ForegroundColor = ConsoleColor.White;
+                                        }
+                                        
                                         Console.WriteLine($"{companyName,-20} {shareCount,-10} {averagePrice,-12:0.00} {currentPrice,-15:0.00} {profitLoss:+0.00;-0.00}");
+                                        Console.ResetColor();
+
                                     }
                                     else
                                     {
