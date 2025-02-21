@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj": {}
+    "C:\\CsharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj": {}
   },
   "projects": {
-    "D:\\CSharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj": {
+    "C:\\CsharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj",
+        "projectUniqueName": "C:\\CsharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj",
         "projectName": "StockExchange",
-        "projectPath": "D:\\CSharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj",
+        "projectPath": "C:\\CsharpWorkspace\\StockExchange\\StockExchange\\StockExchange.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharpWorkspace\\StockExchange\\StockExchange\\obj\\",
+        "outputPath": "C:\\CsharpWorkspace\\StockExchange\\StockExchange\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

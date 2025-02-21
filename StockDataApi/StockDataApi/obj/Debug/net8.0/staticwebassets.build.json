@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "k3GgGL+5CjEUVdubHoDwtnOsQFZaLXQFIoNeA7Wt8jo=",
+  "Source": "StockDataApi",
+  "BasePath": "_content/StockDataApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
